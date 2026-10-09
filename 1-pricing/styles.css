@@ -42,6 +42,8 @@ body {
 }
 
 .plan {
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 0;
@@ -74,6 +76,7 @@ body {
 }
 
 .features {
+  flex-grow: 1;
   list-style: none;
   margin-bottom: 24px;
   text-align: left;
