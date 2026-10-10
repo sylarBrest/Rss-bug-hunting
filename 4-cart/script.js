@@ -35,7 +35,8 @@ function addToCart(id) {
   if (!product) {
     return;
   }
-  if (!cart.find((p) => p.id === product.id)) {
+  const item = cart.find((p) => p.id === product.id);
+  if (!item) {
     cart.push({
       id: product.id,
       name: product.name,
@@ -43,18 +44,14 @@ function addToCart(id) {
       qty: 1,
     });
   } else {
-    cart.map((p) => {
-      if (p.id === product.id) {
-        p.qty += 1;
-      }
-    });
+    item.qty += 1;
   }
   renderCart();
 }
 
 function increaseQty(id) {
   const item = cart.find((i) => i.id === id);
-  item.qty;
+  item.qty += 1;
   renderCart();
 }
 
