@@ -35,12 +35,20 @@ function addToCart(id) {
   if (!product) {
     return;
   }
-  cart.push({
-    id: product.id,
-    name: product.name,
-    price: product.price,
-    qty: 1,
-  });
+  if (!cart.find((p) => p.id === product.id)) {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      qty: 1,
+    });
+  } else {
+    cart.map((p) => {
+      if (p.id === product.id) {
+        p.qty += 1;
+      }
+    });
+  }
   renderCart();
 }
 
